@@ -7,6 +7,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const submitBtn = document.getElementById('submit-btn');
     const sectionTitle = document.getElementById('section-title');
     const progressBar = document.getElementById('progress-bar');
+    const contactBox = document.querySelector('.contact-box');
+    const toggleBtn = document.getElementById('contact-toggle-btn');
+    const mainContainer = document.querySelector('.main-container');
+    const discordUser = document.getElementById('discord-user');
+    const emailAddress = document.getElementById('email-address');
     let currentCardIndex = 0;
     const userAnswers = {};
 
@@ -105,6 +110,75 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Error:', error);
             document.body.innerHTML = `<div style="text-align: center; padding: 50px; font-size: 1.5rem;"><h1>Error de Conexión</h1><p>No se pudo conectar con el servidor.</p></div>`;
         });
+    });
+
+    function closeContactBox() {
+        contactBox.classList.add('closed');
+        toggleBtn.classList.remove('hidden');
+    }
+
+    function openContactBox() {
+        contactBox.classList.remove('closed');
+        toggleBtn.classList.add('hidden');
+    }
+
+    toggleBtn.addEventListener('click', (event) => {
+        event.stopPropagation(); // Evita que el clic se propague al documento
+        openContactBox();
+    });
+
+    function showToast(message) {
+        const existingToast = document.querySelector('.toast-notification');
+        if (existingToast) {
+            existingToast.remove();
+        }
+
+        const toast = document.createElement('div');
+        toast.className = 'toast-notification';
+        toast.textContent = message;
+        document.body.appendChild(toast);
+
+        setTimeout(() => {
+            toast.classList.add('show');
+        }, 10);
+
+        setTimeout(() => {
+            toast.classList.add('fade-out');
+        }, 2000);
+
+        setTimeout(() => {
+            toast.remove();
+        }, 2300); // 2000ms de visible + 300ms de animación de salida
+    }
+
+    // Evento para copiar el usuario de Discord
+    discordUser.addEventListener('click', () => {
+        navigator.clipboard.writeText(discordUser.textContent).then(() => {
+            showToast('¡Usuario de Discord copiado!');
+        }).catch(err => {
+        console.error('Error al copiar usuario de Discord: ', err);
+            showToast('No se pudo copiar');
+        });
+    });
+
+    // Evento para copiar el correo electrónico
+    emailAddress.addEventListener('click', (event) => {
+    // Detiene la acción por defecto del enlace 'mailto:' para solo copiar
+        event.preventDefault(); 
+
+        navigator.clipboard.writeText(emailAddress.textContent).then(() => {
+            showToast('¡Correo electrónico copiado!');
+        }).catch(err => {
+            console.error('Error al copiar correo: ', err);
+            showToast('No se pudo copiar');
+        });
+    });
+
+    document.addEventListener('click', (event) => {
+        // Si el cuadro NO está cerrado Y el clic fue fuera del cuadro
+        if (!contactBox.classList.contains('closed') && !contactBox.contains(event.target)) {
+            closeContactBox();
+        }
     });
 
     updateCarousel();

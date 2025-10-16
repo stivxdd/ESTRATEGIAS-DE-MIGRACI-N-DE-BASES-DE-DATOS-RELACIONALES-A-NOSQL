@@ -86,3 +86,104 @@ button:hover:not(:disabled) { background-color: #5f6aff; transform: translateY(-
 button:disabled { background-color: #2a2a2a; color: #666; cursor: not-allowed; }
 #submit-btn { background-color: #28a745; }
 #submit-btn:hover:not(:disabled) { background-color: #2ebf4d; transform: translateY(-2px); }
+.contact-wrapper {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 1000;
+}
+
+.contact-box {
+    background: rgba(30, 30, 30, 0.9);
+    border: 1px solid #444;
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    /* Transición para ocultar/mostrar */
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    transform-origin: bottom right; /* La animación origina en la esquina */
+}
+
+/* Estado cerrado */
+.contact-box.closed {
+    transform: scale(0);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.contact-toggle-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #4a56e2;
+    border: none;
+    color: white;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    opacity: 0; /* Inicia invisible */
+    pointer-events: none; /* Inicia no-clicable */
+}
+
+/* Cuando el botón NO está oculto */
+.contact-toggle-btn:not(.hidden) {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.contact-toggle-btn:hover {
+    background-color: #5f6aff;
+    transform: scale(1.1);
+}
+
+.contact-box h3 { margin: 0 0 1rem 0; text-align: center; font-size: 0.9rem; font-weight: 600; color: #ccc; text-transform: uppercase; letter-spacing: 1px; }
+.contact-items { display: flex; flex-direction: column; gap: 0.8rem; }
+.contact-item { display: flex; align-items: center; gap: 0.8rem; color: #ccc; text-decoration: none; padding: 0.5rem; border-radius: 6px; transition: background-color 0.2s ease, color 0.2s ease; }
+.contact-item:hover { background-color: #333; color: #fff; }
+.contact-item svg { width: 22px; height: 22px; flex-shrink: 0; }
+.contact-item span { font-size: 0.85rem; word-break: break-all; }
+.discord-user { color: #5865F2; font-weight: 600; }
+#discord-user, #email-address {
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    body { display: block; padding: 1rem 0; }
+    .main-container { padding: 0 1rem; box-sizing: border-box; }
+    .survey-container { max-width: 95%; }
+    .question-card.prev { transform: translateX(-55%) scale(0.7); }
+    .question-card.next { transform: translateX(55%) scale(0.7); }
+    .contact-wrapper { bottom: 15px; right: 15px; }
+}
+
+.toast-notification {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #242424;
+    color: #fff;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    border: 1px solid #4a56e2;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    z-index: 2000;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+}
+
+.toast-notification.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.toast-notification.fade-out {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+}
