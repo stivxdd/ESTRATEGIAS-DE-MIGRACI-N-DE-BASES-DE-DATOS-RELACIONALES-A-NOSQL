@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #f0f0f0;
+    margin: 0;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    padding: 1rem;
+    box-sizing: border-box;
+    background-color: #121212;
+    background-image: radial-gradient(circle at 1% 1%, #4a56e2, #121212 50%);
+}
+
+.main-container { width: 100%; max-width: 900px; display: flex; flex-direction: column; align-items: center; }
+.progress-container { width: 100%; max-width: 450px; height: 8px; background-color: rgba(0, 0, 0, 0.3); border-radius: 4px; margin-bottom: 1.5rem; }
+#progress-bar { width: 0%; height: 100%; background-color: #6c79ff; border-radius: 4px; transition: width 0.5s ease-in-out; }
+
+#section-title {
+    font-size: 1.1rem; color: #ccc; font-weight: 400; margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 0.75rem;
+}
+.section-badge {
+    background-color: #4a56e2; color: #fff; padding: 0.2rem 0.6rem;
+    border-radius: 1rem; font-size: 0.8rem; font-weight: 600;
+}
+
+.survey-container { width: 100%; max-width: 450px; perspective: 1500px; margin-bottom: 2rem; }
+.question-carousel { position: relative; width: 100%; height: 380px; transform-style: preserve-d; display: flex; align-items: center; }
+.question-card {
+    position: absolute; width: 100%; left: 0; height: 380px;
+    border-radius: 16px; padding: 2rem; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: 1px solid #333; box-sizing: border-box; display: flex;
+    flex-direction: column; justify-content: center; align-items: center; text-align: center;
+    will-change: transform, opacity; transition: all 0.6s ease;
+    pointer-events: none; transform: scale(0.8); opacity: 0;
+}
+.question-card.active {
+    transform: scale(1); opacity: 1; filter: none; border-color: #4a56e2;
+    pointer-events: auto; background: #242424; 
+}
+.question-card.prev { transform: translateX(-70%) scale(0.7); opacity: 0.3; filter: blur(3px); }
+.question-card.next { transform: translateX(70%) scale(0.7); opacity: 0.3; filter: blur(3px); }
+.question-card h2 {
+    font-size: clamp(1rem, 4vw, 1.4rem); margin-top: 0;
+    margin-bottom: 2rem; font-weight: 600; line-height: 1.4;
+}
+.options {
+    display: flex; flex-direction: column; gap: 0.8rem;
+    width: 100%; text-align: left; overflow-y: auto; max-height: 180px;
+}
+.options input[type="radio"] { display: none; }
+.options label {
+    display: flex; align-items: center; padding: 0.75rem; border-radius: 8px; cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    font-size: clamp(0.9rem, 1.8vw, 1rem); border: 1px solid #444;
+}
+.options label:hover { background-color: #333; }
+.options label::before {
+    content: ''; width: 18px; height: 18px; border: 2px solid #888; border-radius: 50%;
+    margin-right: 12px; flex-shrink: 0; transition: all 0.2s ease;
+    background: radial-gradient(#fff 0%, #fff 40%, transparent 50%, transparent);
+    background-size: 0% 0%; background-position: center; background-repeat: no-repeat;
+}
+.options input[type="radio"]:checked + label { background-color: #4a56e2; border-color: #6c79ff; }
+.options input[type="radio"]:checked + label::before { border-color: #6c79ff; background-size: 100% 100%; }
+
+.navigation-buttons { display: flex; gap: 1rem; }
+button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem; font-weight: bold; color: white; background-color: #4a56e2;
+    border: none; border-radius: 8px; cursor: pointer; transition: all 0.3s ease;
+}
+.navigation-buttons svg {
+    width: 20px;
+    height: 20px;
+}
+
+button:hover:not(:disabled) { background-color: #5f6aff; transform: translateY(-2px); }
+button:disabled { background-color: #2a2a2a; color: #666; cursor: not-allowed; }
+#submit-btn { background-color: #28a745; }
+#submit-btn:hover:not(:disabled) { background-color: #2ebf4d; transform: translateY(-2px); }

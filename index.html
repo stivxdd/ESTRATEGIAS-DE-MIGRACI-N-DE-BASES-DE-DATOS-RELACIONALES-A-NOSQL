@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta: Migración de Bases de Datos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="main-container">
+
+        <h1 id="section-title"></h1>
+        
+        <div class="progress-container">
+            <div id="progress-bar"></div>
+        </div>
+
+        <div class="survey-container">
+            <div class="question-carousel">
+
+                <div class="question-card active" data-section="1">
+                    <h2>¿Cuál es tu género?</h2>
+                    <div class="options">
+                        <input type="radio" id="q1-op1" name="genero" value="Masculino">
+                        <label for="q1-op1">Masculino</label>
+                        <input type="radio" id="q1-op2" name="genero" value="Femenino">
+                        <label for="q1-op2">Femenino</label>
+                    </div>
+                </div>
+
+                <div class="question-card" data-section="1">
+                    <h2>1. ¿Cuál es tu nivel de estudios (ciclo actual)?</h2>
+                    <div class="options">
+                        <input type="radio" id="q2-op1" name="nivel_estudios" value="4to o inferior">
+                        <label for="q2-op1">4to o inferior</label>
+                        <input type="radio" id="q2-op2" name="nivel_estudios" value="5to a 7mo">
+                        <label for="q2-op2">5to a 7mo</label>
+                        <input type="radio" id="q2-op3" name="nivel_estudios" value="8vo a 10mo">
+                        <label for="q2-op3">8vo a 10mo</label>
+                    </div>
+                </div>
+
+                <div class="question-card" data-section="1">
+                    <h2>2. ¿Cuántos años de experiencia tienes trabajando o estudiando bases de datos?</h2>
+                    <div class="options">
+                        <input type="radio" id="q3-op1" name="experiencia" value="Menos de 1 año">
+                        <label for="q3-op1">Menos de 1 año</label>
+                        <input type="radio" id="q3-op2" name="experiencia" value="1 a 2 años">
+                        <label for="q3-op2">1 a 2 años</label>
+                        <input type="radio" id="q3-op3" name="experiencia" value="Más de 2 años">
+                        <label for="q3-op3">Más de 2 años</label>
+                    </div>
+                </div>
+
+                <div class="question-card" data-section="1">
+                    <h2>3. ¿Cuál es tu nivel de familiaridad con Bases de Datos NoSQL?</h2>
+                    <div class="options">
+                        <input type="radio" id="q4-op1" name="familiaridad_nosql" value="Ninguno">
+                        <label for="q4-op1">Ninguno</label>
+                        <input type="radio" id="q4-op2" name="familiaridad_nosql" value="Bajo">
+                        <label for="q4-op2">Bajo</label>
+                        <input type="radio" id="q4-op3" name="familiaridad_nosql" value="Moderado">
+                        <label for="q4-op3">Moderado</label>
+                        <input type="radio" id="q4-op4" name="familiaridad_nosql" value="Alto">
+                        <label for="q4-op4">Alto</label>
+                        <input type="radio" id="q4-op5" name="familiaridad_nosql" value="Experto">
+                        <label for="q4-op5">Experto</label>
+                    </div>
+                </div>
+
+                <div class="question-card" data-section="2">
+                    <h2>4. ¿Cuál consideras que es la PRINCIPAL ventaja de migrar de Relacional a NoSQL?</h2>
+                    <div class="options">
+                        <input type="radio" id="q5-op1" name="ventaja_principal" value="Mejor escalabilidad">
+                        <label for="q5-op1">Mejor escalabilidad</label>
+                        <input type="radio" id="q5-op2" name="ventaja_principal" value="Mayor rendimiento">
+                        <label for="q5-op2">Mayor rendimiento</label>
+                        <input type="radio" id="q5-op3" name="ventaja_principal" value="Flexibilidad de esquema">
+                        <label for="q5-op3">Flexibilidad de esquema</label>
+                        <input type="radio" id="q5-op4" name="ventaja_principal" value="Manejo de datos no estructurados">
+                        <label for="q5-op4">Manejo de datos no estructurados</label>
+                    </div>
+                </div>
+
+                <div class="question-card" data-section="2">
+                    <h2>5. ¿Cuál consideras que es el MAYOR desafío técnico al migrar?</h2>
+                    <div class="options">
+                        <input type="radio" id="q6-op1" name="desafio_tecnico" value="Rediseño del modelo de datos">
+                        <label for="q6-op1">Rediseño del modelo de datos</label>
+                        <input type="radio" id="q6-op2" name="desafio_tecnico" value="Pérdida de integridad de datos (ACID)">
+                        <label for="q6-op2">Pérdida de integridad de datos (ACID)</label>
+                        <input type="radio" id="q6-op3" name="desafio_tecnico" value="Capacitación en la nueva tecnología">
+                        <label for="q6-op3">Capacitación en la nueva tecnología</label>
+                        <input type="radio" id="q6-op4" name="desafio_tecnico" value="Alto costo de herramientas">
+                        <label for="q6-op4">Alto costo de herramientas</label>
+                    </div>
+                </div>
+
+                <div class="question-card" data-section="2">
+                    <h2>6. ¿Qué nivel de dificultad crees que representa la reescritura de consultas SQL a NoSQL?</h2>
+                    <div class="options">
+                        <input type="radio" id="q7-op1" name="dificultad_reescritura" value="Muy Fácil">
+                        <label for="q7-op1">Muy Fácil</label>
+                        <input type="radio" id="q7-op2" name="dificultad_reescritura" value="Fácil">
+                        <label for="q7-op2">Fácil</label>
+                        <input type="radio" id="q7-op3" name="dificultad_reescritura" value="Neutro">
+                        <label for="q7-op3">Neutro</label>
+                        <input type="radio" id="q7-op4" name="dificultad_reescritura" value="Difícil">
+                        <label for="q7-op4">Difícil</label>
+                        <input type="radio" id="q7-op5" name="dificultad_reescritura" value="Muy Difícil">
+                        <label for="q7-op5">Muy Difícil</label>
+                    </div>
+                </div>
+
+                <div class="question-card" data-section="3">
+                    <h2>7. ¿Qué estrategia de migración consideras más segura?</h2>
+                    <div class="options">
+                        <input type="radio" id="q8-op1" name="estrategia_migracion" value="Big-Bang">
+                        <label for="q8-op1">Big-Bang (todo de golpe)</label>
+                        <input type="radio" id="q8-op2" name="estrategia_migracion" value="Migración Gradual">
+                        <label for="q8-op2">Migración Gradual (Strangler Fig)</label>
+                        <input type="radio" id="q8-op3" name="estrategia_migracion" value="Coexistencia">
+                        <label for="q8-op3">Coexistencia (ambas BD activas)</label>
+                    </div>
+                </div>
+
+                <div class="question-card" data-section="3">
+                    <h2>8. ¿Qué porcentaje de datos históricos debería migrarse?</h2>
+                    <div class="options">
+                        <input type="radio" id="q9-op1" name="datos_historicos" value="Menos del 25%">
+                        <label for="q9-op1">Menos del 25%</label>
+                        <input type="radio" id="q9-op2" name="datos_historicos" value="25% a 50%">
+                        <label for="q9-op2">25% a 50%</label>
+                        <input type="radio" id="q9-op3" name="datos_historicos" value="51% a 75%">
+                        <label for="q9-op3">51% a 75%</label>
+                        <input type="radio" id="q9-op4" name="datos_historicos" value="Más del 75%">
+                        <label for="q9-op4">Más del 75%</label>
+                    </div>
+                </div>
+
+                <div class="question-card" data-section="3">
+                    <h2>9. ¿Qué tan importante es la documentación completa de la BD de origen?</h2>
+                    <div class="options">
+                        <input type="radio" id="q10-op1" name="importancia_documentacion" value="Nada importante">
+                        <label for="q10-op1">Nada importante</label>
+                        <input type="radio" id="q10-op2" name="importancia_documentacion" value="Poco importante">
+                        <label for="q10-op2">Poco importante</label>
+                        <input type="radio" id="q10-op3" name="importancia_documentacion" value="Importante">
+                        <label for="q10-op3">Importante</label>
+                        <input type="radio" id="q10-op4" name="importancia_documentacion" value="Muy importante">
+                        <label for="q10-op4">Muy importante</label>
+                        <input type="radio" id="q10-op5" name="importancia_documentacion" value="Esencial">
+                        <label for="q10-op5">Esencial</label>
+                    </div>
+                </div>
+
+                <div class="question-card" data-section="4">
+                    <h2>10. ¿Consideras que las herramientas automatizadas (ETL) son indispensables?</h2>
+                    <div class="options">
+                        <input type="radio" id="q11-op1" name="herramientas_etl" value="Sí, son indispensables">
+                        <label for="q11-op1">Sí, son indispensables</label>
+                        <input type="radio" id="q11-op2" name="herramientas_etl" value="Son útiles, pero no indispensables">
+                        <label for="q11-op2">Son útiles, pero no indispensables</label>
+                        <input type="radio" id="q11-op3" name="herramientas_etl" value="No, prefiero scripts manuales">
+                        <label for="q11-op3">No, prefiero scripts manuales</label>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="navigation-buttons">
+            <button id="prev-btn" disabled>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+                Anterior
+            </button>
+            <button id="next-btn" disabled>
+                Siguiente
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </button>
+            <button id="submit-btn" style="display: none;">Enviar Encuesta</button>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
