@@ -153,12 +153,59 @@ button:disabled { background-color: #2a2a2a; color: #666; cursor: not-allowed; }
 }
 
 @media (max-width: 600px) {
-    body { display: block; padding: 1rem 0; }
-    .main-container { padding: 0 1rem; box-sizing: border-box; }
-    .survey-container { max-width: 95%; }
-    .question-card.prev { transform: translateX(-55%) scale(0.7); }
-    .question-card.next { transform: translateX(55%) scale(0.7); }
-    .contact-wrapper { bottom: 15px; right: 15px; }
+    body {
+        /* Permite que el contenido se desplace si es necesario,
+           en lugar de estar fijo en el centro. */
+        display: block;
+        padding-top: 2rem; /* Añade un poco de espacio superior */
+    }
+
+    .main-container {
+        /* Asegura que el contenedor no esté pegado a los bordes */
+        padding: 0 1rem;
+    }
+
+    .survey-container {
+        /* Reduce el margen inferior en móviles para compactar el diseño */
+        margin-bottom: 1rem;
+    }
+
+    .question-carousel, .question-card {
+        /* Reduce la altura fija para que quepa mejor en pantallas verticales */
+        height: 350px;
+    }
+
+    .question-card h2 {
+        /* Reduce el margen para dar más espacio a las opciones */
+        margin-bottom: 1.5rem;
+        font-size: 1.2rem; /* Un tamaño de fuente más adecuado para móviles */
+    }
+
+    .question-card.prev {
+        /* Ajusta la posición de las tarjetas laterales */
+        transform: translateX(-55%) scale(0.7);
+    }
+
+    .question-card.next {
+        transform: translateX(55%) scale(0.7);
+    }
+
+    .navigation-buttons {
+        /* Asegura que los botones no se desborden */
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .contact-wrapper {
+        /* Posiciona el cuadro de contacto de forma más accesible */
+        bottom: 15px;
+        right: 15px;
+    }
+
+    /* Ajustes para el cuadro de contacto en pantallas muy pequeñas */
+    .contact-box {
+        max-width: 250px; /* Evita que sea demasiado ancho */
+    }
 }
 
 .toast-notification {
